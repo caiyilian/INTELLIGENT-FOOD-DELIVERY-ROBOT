@@ -1,0 +1,44 @@
+.myUserInfoContainer{
+    height: 100%;
+    background-color: #f4f4f4;
+}
+.top_box{
+    height: 400rpx;
+    background-color: #C00000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.avatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    border: 2px solid #FFF;
+    box-shadow: 0 1px 5px black;
+}
+
+.nickname{
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+}
+.pannel{
+    
+    background-color: white;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    margin: 20px 15px;
+}
+.pannel-list-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    padding: 0 10px;
+    line-height: 45px;
+}
+
+.pannel-list-item:active{
+    background-color: rgb(199, 191, 191);
+}

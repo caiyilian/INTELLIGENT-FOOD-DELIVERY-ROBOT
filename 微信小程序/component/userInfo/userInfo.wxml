@@ -1,0 +1,31 @@
+<view class="myUserInfoContainer">
+    <view class="top_box">
+        <image class="avatar" src="{{m1.Str2Json(userInfo.rawData).avatarUrl}}"></image>
+        <view class="nickname">{{m1.Str2Json(userInfo.rawData).nickName}}</view>
+    </view>
+
+    <view class="pannel">
+        <view class="pannel-list-item" bindtap="inMyShop">
+            <text>我的店铺</text>
+            <van-icon size="15" name="arrow" />
+        </view>
+        <view class="pannel-list-item" bindtap="inSubscribeShop">
+            <text>收藏的店铺</text>
+            <van-icon size="15" name="arrow" />
+        </view>
+        <view class="pannel-list-item">
+            <text>联系客服</text>
+            <van-icon size="15" name="arrow" />
+        </view>
+        <view class="pannel-list-item" bindtap="logout">
+            <text>退出登录</text>
+            <van-icon size="15" name="arrow" />
+        </view>
+
+    </view>
+</view>
+<wxs module="m1">
+module.exports.Str2Json = function(str){
+    return JSON.parse(str)
+}
+</wxs>

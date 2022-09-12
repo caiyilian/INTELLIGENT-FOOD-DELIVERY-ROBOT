@@ -1,0 +1,5 @@
+<view class="login_container">
+    <van-icon  size="100" name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
+    <button bindtap="getUserProfile"  type="{{MyPageButtonType}}" class="btn_login">一键登录</button>
+</view>
+
