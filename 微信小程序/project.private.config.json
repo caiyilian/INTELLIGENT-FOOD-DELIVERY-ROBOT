@@ -1,0 +1,84 @@
+{
+    "projectname": "miniprogram-2",
+    "setting": {
+        "compileHotReLoad": true,
+        "urlCheck": false
+    },
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/contact/contact",
+                    "pathName": "pages/contact/contact",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "pages/message/message",
+                    "pathName": "pages/message/message",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "pages/shoplist/shoplist",
+                    "pathName": "pages/shoplist/shoplist",
+                    "query": "id=1&title=美食",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "createShopPage",
+                    "pathName": "pages/createShopPage/createShopPage",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "shop",
+                    "pathName": "pages/shop/shop",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "订阅页面",
+                    "pathName": "pages/subscribeShop/subscribeShop",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "pages/searchShopPage/searchShopPage",
+                    "pathName": "pages/searchShopPage/searchShopPage",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "我的店铺",
+                    "pathName": "pages/myShop/myShop",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "测试",
+                    "pathName": "pages/test/test",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "厨房",
+                    "pathName": "pages/kitchen/kitchen",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

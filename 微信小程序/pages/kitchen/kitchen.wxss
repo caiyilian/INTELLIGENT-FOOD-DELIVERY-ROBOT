@@ -1,0 +1,103 @@
+.map,.myCanvas{
+    z-index: 3;
+}
+
+.myCanvas{
+    width:750rpx; 
+}
+.flag{
+    height: 50rpx;
+    position: absolute;
+}
+.inputWindows{
+    background-color: rgba(14, 35, 47, 0.5);
+    width: 70%;
+    left: 5%;
+    height: 200rpx;
+    z-index: 997;
+    position: fixed;
+    top: 400rpx;
+    border-radius: 30rpx;
+    padding: 10% 10% 10% 10%;
+}
+.inputWindows text{
+    display: block;
+    font-size: 45rpx;
+    width: 100%;
+    margin-left: 10%;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+.inputWindows view{
+    margin: 30rpx auto;
+    font-size:larger;
+    display: flex;
+    flex-direction: row;
+}
+
+.inputWindows view input{
+    margin-left: 25rpx;
+    border: 1px white solid;
+    border-radius: 15rpx;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+}
+.yesCreate,.noCreate{
+    border-radius: 30rpx;
+}
+.Container{
+    display: flex;
+    height: 500rpx;
+    flex-direction: column;
+    border-radius: 30rpx;
+    margin: 0 4%;
+    border: 1px red solid;
+    overflow: hidden;
+}
+.ordersHeader{
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    padding: 0 30rpx;
+    background-color: gray;
+    top: 0;
+}
+.ordersHeader view{
+    font-size: large;
+    text-align: center;
+    margin: auto;
+    width: 33%;
+    height: 65rpx;
+}
+
+.orders{
+    overflow: scroll;
+    display: flex;
+    flex-direction:row ;
+    border-bottom: 1px red solid;
+    margin: 10rpx auto;
+    width: 90%;
+}
+.FoodName,.DeskId{
+    margin: auto;
+    height: 100%;
+    width: 33%;
+
+}
+.orders button{
+    margin-bottom: 10rpx;
+}
+.FoodName,.DeskId{
+    word-break:keep-all;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.ordersContainer{
+    overflow:scroll;
+}
+.van-empty{
+    height: 500rpx;
+}

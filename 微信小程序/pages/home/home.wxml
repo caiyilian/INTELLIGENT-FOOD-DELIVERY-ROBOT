@@ -1,0 +1,19 @@
+<view class="homeContainer">
+    <view class="createShop" bindtap="createShop">
+    <view class="container-list">
+        <van-icon name="add-o" size="40" class="homeIcon" />
+        <text class="homeText">创建店铺</text>
+    </view>
+    </view>
+    <view class="searchShop" bindtap="searchShop">
+        <view class="container-list">
+            <van-icon name="search" size="40" class="homeIcon" />
+            <text class="homeText">寻找店铺</text>
+        </view>
+    </view>
+</view>
+
+<view style="width: 20%;margin: auto;" bindtap="scanCode" hidden="{{!islogin}}">
+<image src="/images/sacn.png" mode="widthFix" style="width: 100%;margin: 10px auto;"></image>
+</view>
+

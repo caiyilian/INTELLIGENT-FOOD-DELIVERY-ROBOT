@@ -1,0 +1,20 @@
+<view class="searchTop">
+    <view class="inputContainer">
+        <view bindtap="changeSearchType" class="searchType">{{searchType}}</view>
+        <view class="searchInput"><input placeholder="请输入店铺{{searchType}}" type="text" bindconfirm='search' bindinput="listen" /></view>   
+    </view>
+    <view class="search" bindtap="search">搜索</view>
+</view>
+<view wx:if="{{findList.length===0}}"><van-empty description="未找到任何店铺" /></view>
+<view wx:else="">
+    <view  class="searchShopContainer" wx:for="{{findList}}" wx:key="id">
+        <view bindtap="goToShop" data-id="{{item.id}}" class="searchShopImg">
+            <image mode="heightFix" src="{{item.headImg}}"></image>
+        </view>
+        <view bindtap="goToShop" data-id="{{item.id}}" class="searchShopTextContainer">
+            <view class="searchShopName">{{item.shopName}}</view>
+            <view class="searchShopId">id：{{item.id}}</view>
+        </view>
+    </view>
+    <van-divider contentPosition="center">已经到底了</van-divider>
+</view>

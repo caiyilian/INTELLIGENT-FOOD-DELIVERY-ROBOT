@@ -1,0 +1,18 @@
+<view wx:if="{{favoriteShop.length===0}}">
+    <van-empty description="您没有任何收藏的店铺" />
+</view>
+<view wx:else="">
+    <view  class="likeShopContainer" wx:for="{{favoriteShop}}" wx:key="id">
+        <view bindtap="goToShop" data-id="{{item.id}}" class="likeShopImg">
+            <image mode="widthFix" src="{{item.headImg}}"></image>
+        </view>
+        <view bindtap="goToShop" data-id="{{item.id}}" class="likeShopTextContainer">
+            <view class="likeShopName">{{item.shopName}}</view>
+            <view class="likeShopId">{{"id:"+item.id}}</view>
+        </view>
+        <view class="cancelSubscribe">
+            <button bindtap="cancleSub" data-id="{{item.id}}" class="cancelButton" type="warn">移除</button>
+        </view>
+    </view>
+    <van-divider contentPosition="center">已经到底了</van-divider>
+</view>

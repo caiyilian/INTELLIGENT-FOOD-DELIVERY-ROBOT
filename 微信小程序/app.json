@@ -1,0 +1,51 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/contact/contact",
+    "pages/createShopPage/createShopPage",
+    "pages/searchShopPage/searchShopPage",
+    "pages/shop/shop",
+    "pages/subscribeShop/subscribeShop",
+    "pages/myShop/myShop",
+    "pages/kitchen/kitchen",
+    "pages/test/test"
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "本地生活",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+      "list": [
+        {
+          "pagePath": "pages/home/home",
+          "text": "首页",
+          "iconPath": "/images/home.png",
+          "selectedIconPath": "/images/home-active.png"
+        },
+        {
+            "pagePath": "pages/contact/contact",
+            "text": "我的",
+            "iconPath": "/images/my.png",
+            "selectedIconPath": "/images/my-active.png"
+        }       
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "My":"/component/My/My",
+    "userInfo":"/component/userInfo/userInfo",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
+    
+  }
+}

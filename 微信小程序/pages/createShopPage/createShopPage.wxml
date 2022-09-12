@@ -1,0 +1,67 @@
+
+<view class="createShopInput">
+    <view class="createShopTitle">创建新店铺</view>
+    <van-cell-group >
+  <van-field
+    id="name"
+    label="姓名"
+    placeholder="请输入姓名"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="/images/name.png"
+    custom-style="border:1px #eeeeee solid;border-radius: 15rpx;margin:20rpx 0;"
+    required
+  />
+  <van-field
+    label="联系电话"
+    id="phoneNum"
+    placeholder="请输入手机号码"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="/images/phone.png"
+    custom-style="border:1px #eeeeee solid;border-radius: 15rpx;margin:20rpx 0;"
+    required
+  />
+  <van-field
+    label="店铺名称"
+    id="shopName"
+    placeholder="请输入店铺名称"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="/images/shop.png"
+    custom-style="border:1px #eeeeee solid;border-radius: 15rpx;margin:20rpx 0;"
+    required
+  />
+  <van-field
+    label="邮箱"
+    id="emailNum"
+    placeholder="请输入邮箱"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="/images/email.png"
+    custom-style="border:1px #eeeeee solid;border-radius: 15rpx;margin:20rpx 0;"
+  />
+  <van-field
+    label="密码"
+    id="passwordNum"
+    placeholder="请设置密码"
+    border="{{ false }}"
+    bind:change="onChange"
+    left-icon="/images/password.png"
+    custom-style="border:1px #eeeeee solid;border-radius: 15rpx;margin:20rpx 0;"
+    required
+    type="{{passwordType}}"
+    icon="{{passwordIconUrl}}"
+    bind:click-icon="seePassword"
+  />
+  <view class="uploadHeadImgContainer">
+    <text class="shopNameText">店铺头像</text>
+    <van-uploader class="uploadHeadImg"  bind:after-read="afterRead" />
+    <view class="showImg">
+        <image hidden="{{!headImg}}" src="{{headImg}}" mode="heightFix" class="headImg" />
+    </view>
+  </view>
+  
+  <button type="primary" bindtap="createShop">创建店铺</button>
+</van-cell-group>
+</view>

@@ -1,0 +1,4 @@
+<view class="myContainer">
+    <My wx:if="{{!islogin}}"></My>
+    <userInfo wx:else=""></userInfo>
+</view>

@@ -1,0 +1,77 @@
+<view class="mapContainer">
+    <image mode="widthFix" style="width: 100%;" src="{{nowInKitchen.slamMapImgUrl}}" bindtap="touchImg" class="map"></image> 
+<canvas bindlongtap="touchLong"  id="myCanvas" type="2d" style="position: absolute;top: 0;width: 750rpx; height: {{canvaHeight}}rpx;" />
+</view>
+<view class="flagContainer">
+    <!-- bindtap="clickKitchenFlag"  -->
+    <view wx:for="{{nowInKitchen.flagMsgObj.kitchen}}" wx:key="id">
+        <image bindtap="clickKitchenFlag" bindlongpress="longClickFlag" data-name="厨房" data-y="{{item.y}}" data-x="{{item.x}}" data-id="{{item.id}}" class="flag" mode="heightFix" style="top: {{item.y}}px;left: {{item.x}}px;" src="/images/kitchen.png"></image>
+    </view>
+    <view wx:for="{{nowInKitchen.flagMsgObj.desk}}" wx:key="id">
+        <image bindtap="clickDeskFlag" bindlongpress="longClickFlag" data-name="餐桌" data-y="{{item.y}}" data-x="{{item.x}}" data-id="{{item.id}}" class="flag" mode="heightFix" style="top: {{item.y}}px;left: {{item.x}}px;" src="/images/desk.png"></image>
+    </view>
+</view>
+
+
+<view class="ActionSheet">
+    <action-sheet bindchange="actionsheetChange" hidden="{{hiddenActionsheet}}">
+       <block wx:for="{{groups}}" wx:key="id" > 
+         <action-sheet-item bindtap="itemTap" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</action-sheet-item>
+       </block>
+       <action-sheet-cancel >取消</action-sheet-cancel>
+    </action-sheet>
+</view>
+
+<view wx:if="{{addingItem.itemName!==''}}"  class="inputWindows">
+    <text>创建{{addingItem.itemName}}</text>
+    <view class="inputFoodName">id
+        <input bindinput="addIDInput" data-name="title" placeholder="请输入{{addingItem.itemName}}号" placeholder-style="color:rgba(255,255,255,0.5);margin-left:20rpx" type="text"/>
+    </view>
+    <view class="buttonContainer">
+        <button bindtap="clickButton" data-create="{{true}}" class="yesCreate" type="primary">确定</button>
+        <button bindtap="clickButton" data-create="{{false}}" class="noCreate" type="warn">取消</button>
+    </view>
+</view>
+
+<view style="width: 80%;margin: 0 auto;" >
+    <button bindtap="getMap" disabled="{{longTouchGrid.x!==null}}" style="margin: 50rpx 0;" type="primary">导入新地图</button>
+</view>
+<!-- 订单列表 -->
+<view class="Container">
+    <view class="ordersHeader">
+        <view >菜名</view>
+        <view>餐桌号</view>
+        <view>是否完成</view>
+    </view>
+        <view wx:for="{{orderList}}" wx:key="index" class="ordersContainer">
+            <view class="orders">
+            <text class="FoodName">{{item.foodName}}</text>
+            <text class="DeskId">{{item.DeskId}}</text>
+            <button bindtap="ready" data-index="{{item.index}}" disabled="{{item.isReady}}" class="isReady" type="primary">{{item.isReady?"已完成":"完成"}}</button>
+        </view>
+    </view>
+    <view hidden="{{orderList.length!==0}}">
+        <van-empty description="当前没有任何订单" />
+    </view>
+</view>
+<loading hidden="{{!loading}}">
+请求中....
+</loading>
+
+
+
+  
+
+
+
+<!-- 
+
+
+
+
+
+
+
+
+
+ -->

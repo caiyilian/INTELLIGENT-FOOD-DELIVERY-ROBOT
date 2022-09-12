@@ -1,0 +1,35 @@
+page{
+    height: 100%;
+    background-color: #efefef;
+}
+.homeContainer{
+    margin-top: 100rpx;
+}
+.createShop,.searchShop{
+    padding: 20rpx 10%;
+    height: 160rpx;
+    width: 60%;
+    margin: 30rpx auto;
+    border-radius: 25rpx;
+}
+.createShop{
+    background-color: red;
+}
+.searchShop{
+    background-color: greenyellow;
+}
+.container-list{
+    height: 100%;
+    display: flex;
+}
+.homeText{
+    padding-left: 15%;
+    margin: auto 0;
+    font-size: 50rpx;
+}
+.createShop:active{
+    background-color: rgb(240, 12, 12);
+}
+.searchShop:active{
+    background-color: rgb(177, 230, 23);
+}

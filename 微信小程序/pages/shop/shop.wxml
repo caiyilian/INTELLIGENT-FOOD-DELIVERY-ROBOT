@@ -1,0 +1,127 @@
+
+<view class="shopTopView">
+    <view  class="shopThreeDot">
+        <view hidden="{{moreOperate||!isMyShop}}">
+            <van-icon bindtap="moreMsg" color="black" size="30" name="ellipsis" />
+        </view>
+        <view class="ActionSheet">
+    <action-sheet bindchange="actionsheetChange" hidden="{{showActionsheet}}">
+       <block wx:for="{{groups}}" wx:key="id" > 
+         <action-sheet-item bindtap="itemTap" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</action-sheet-item>
+       </block>
+       <action-sheet-cancel >取消</action-sheet-cancel>
+    </action-sheet>
+  </view>
+    </view>
+    <view  class="shopTopTextContainer">
+        <text class="shopTopText">{{shopInfo.phoneNum}}</text>
+        <text class="shopTopText shopId">id:{{shopInfo.id}}</text>
+    </view>
+    <view class="shopHeadImgView">
+        <image src="{{shopInfo.headImg}}" mode="heightFix" class="shopHeadImg"></image>
+        <view class="shopSubscribe">
+            <van-icon bind:click="subscribe" color="red" size="20" name="{{Subscriber.isSubscibe(isLike)}}" />
+            <text style="margin-left: 10rpx;">收藏</text>
+        </view>
+    </view> 
+</view>
+<view class="stop">
+<!-- 用于阻挡菜品上去 -->
+</view>
+<view  style="margin-top: 380rpx;">
+    <view  class="foodContainer" wx:for="{{shopInfo.foodList}}" wx:key="index">
+        <van-card class="food"
+        num="{{Subscriber.showNum(beginDelete,item.num)}}" 
+        price="{{item.price}}"
+        desc="{{item.desc}}"
+        title="{{item.title}}"
+        thumb="{{item.thumb}}"
+        >
+        <view slot="footer" style="display: flex;flex-direction: row;height: 60rpx;">
+            
+            <view wx:if="{{beginDelete}}"  class="deleteFootButton" bindtap="updateFootNum" data-dir="{{-1}}" data-flag="{{item.index}}">
+                <view style="font-size: 25rpx;color: red;">删除</view>
+                <image bindtap="deleteFood" data-index="{{item.index}}" style="height: 100%;" src="/images/delete.png/" mode="heightFix"></image>
+            </view>
+        </view>
+        <view wx:if="{{!beginDelete}}" slot="footer" style="display: flex;flex-direction: row;height: 60rpx;">
+            <view hidden="{{isMyShop}}" class="addFootButton" bindtap="updateFootNum" data-dir="{{1}}" data-flag="{{item.index}}" >
+                <image style="height: 100%;" src="/images/add.png/" mode="heightFix"></image>
+            </view>
+            <view hidden="{{isMyShop}}" class="subFootButton" bindtap="updateFootNum" data-dir="{{-1}}" data-flag="{{item.index}}">
+                <image style="height: 100%;" src="/images/sub.png/" mode="heightFix"></image>
+        </view>
+        </view>
+    </van-card>
+    </view>
+
+    <view wx:if="{{shopInfo.foodList.length!==0}}" class="useless">
+        <van-divider contentPosition="center">--------已经到底了--------</van-divider>
+    </view>
+    <view wx:else>
+        <van-empty description="这家店铺空空如也" />
+    </view>
+</view>
+
+<view hidden="{{isMyShop}}" wx:if="{{!moreOperate}}">
+    <van-submit-bar
+  price="{{ totalPrice }}"
+  button-text="结算"
+  bind:submit="onClickButton"
+  tip="{{ true }}"
+  
+>
+    <van-icon size='45' name="shop" info="{{totalNum}}" color="blue" />    
+</van-submit-bar>
+</view>
+<view wx:else class="cancelAndFinish">
+    <button type="warn" bindtap="operateDone" data-mode="cancel">取消</button>
+    <button type="primary" bindtap="operateDone" data-mode="finish">完成</button>
+</view>
+<view wx:if="{{beginAdd}}" class="inputWindows">
+    <text>增加菜品</text>
+    <view class="inputFoodName">菜名
+        <input bindinput="addFoodInput" data-name="title" placeholder="请输入菜品名" placeholder-style="color:rgba(255,255,255,0.5);margin-left:20rpx" type="text"/>
+    </view>
+    <view class="inputFoodDesc">描述
+        <input bindinput="addFoodInput" data-name="desc" placeholder="请输入菜品描述" placeholder-style="color:rgba(255,255,255,0.5);margin-left:20rpx" type="text"/></view>
+    <view class="inputFoodPrice">价格
+        <input bindinput="addFoodInput" data-name="price" placeholder="请输入菜品价格" placeholder-style="color:rgba(255,255,255,0.5);margin-left:20rpx" type="digit"/></view>
+    <view class="inputFoodImg">图片
+        <van-uploader bind:after-read="afterRead" />
+        <image class="inutImg" mode="heightFix" src="{{addFoodObj.thumb}}"></image>
+    </view>
+</view>
+
+<wxs module="Subscriber">
+    //将data中的isLike转换成like-o和like
+    var isSubscibe = function(boolVal){
+        return boolVal?"like":"like-o"
+    };
+    //将data中的beginDelete转换成空字符串或该物品的数量
+    var showNum = function(boolVal,num){
+        return boolVal===false?num:""
+    }
+    
+    module.exports.isSubscibe = isSubscibe;
+    module.exports.showNum = showNum;
+</wxs>
+<view hidden="{{!showCode}}" style="background-color:rgba(80, 80, 69, 0.3);height: 100%;width: 100%;position: fixed;top: 0;z-index: 9999;">
+    <view style="margin: 50% auto;width: 50%;">
+    <image mode="widthFix" style="width: 100%;" src="{{wechatCode}}"></image>
+    </view> 
+    <view style="margin:-100rpx" bindtap="endShow">
+        <button type="primary" >结束展示</button>
+    </view>
+</view>
+
+<view hidden="{{!addCode}}"  style="z-index: 9999;border-radius: 30rpx;padding: 5%;background-color: gray;width: 70%;margin: 50% 10%;position: fixed;height: 250rpx;top: 0;">
+    <text style="display: block;font-size: 45rpx;width: 100%;margin-left: 10%;text-align: center;margin: 0 auto;color: white;">生成二维码</text>
+    <view style="margin: 30rpx auto;font-size:larger;display: flex;flex-direction: row;">桌号
+        <input value="{{DeskNumInput}}"  bindinput="addCodeInput"  placeholder="请输入桌号" style="margin-left: 25rpx;border: 1px white solid;border-radius: 15rpx;" placeholder-style="color:rgba(255,255,255,0.5);margin-left:20rpx" type="text"/>
+    </view>
+    <view style="margin: auto;width: 300rpx;display:flex;flex-direction: row;">
+        <button style="border-radius: 50rpx;" type="primary" bindtap="addCodeButton">生成</button>
+        <button style="border-radius: 50rpx;" type="warn" bindtap="cancelCodeButton">取消</button>
+    </view>
+</view>

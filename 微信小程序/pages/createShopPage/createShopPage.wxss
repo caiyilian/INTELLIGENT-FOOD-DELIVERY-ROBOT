@@ -1,0 +1,37 @@
+/* pages/createShopPage/createShopPage.wxss */
+
+.createShopInput{
+    display: block;
+    width: 600rpx;
+    margin: 100rpx auto;
+    
+}
+.createShopTitle{
+    width: 350rpx;
+    display: block;
+    margin: 0 auto 90rpx auto;
+    font-size: 70rpx;
+    color: orange;
+}
+.uploadHeadImgContainer{
+    width: 600rpx;
+    display: flex;
+    flex-direction: row;
+    border:1px orange solid;
+    border-radius: 15rpx;
+    height: 161rpx;
+    margin-bottom: 20rpx;
+}
+.uploadHeadImg{
+    margin: 0 30rpx;
+}
+.headImg{
+    height: 100%;
+}
+.shopNameText{
+    margin: auto 10rpx;
+}
+.showImg{
+    width: 30%;
+    overflow: hidden;
+}

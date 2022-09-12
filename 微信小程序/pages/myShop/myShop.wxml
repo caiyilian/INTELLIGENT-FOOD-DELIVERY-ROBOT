@@ -1,0 +1,18 @@
+<view wx:if="{{myShop.length===0}}">
+    <van-empty description="您没有拥有任何店铺" />
+</view>
+<view wx:else>
+    <view  class="myShopContainer" wx:for="{{myShop}}" wx:key="id">
+        <view bindtap="goToShop" data-id="{{item.id}}" class="myShopImg">
+            <image mode="widthFix" src="{{item.headImg}}"></image>
+        </view>
+        <view bindtap="goToShop" data-id="{{item.id}}" class="myShopTextContainer">
+            <view class="myShopName">{{item.shopName}}</view>
+            <view class="myShopId">{{"id:"+item.id}}</view>
+        </view>
+        <view class="cancelMyShop">
+            <button bindtap="cancleSub" data-id="{{item.id}}" class="cancelButton" type="warn">删除</button>
+        </view>
+    </view>
+    <van-divider contentPosition="center">已经到底了</van-divider>
+</view>

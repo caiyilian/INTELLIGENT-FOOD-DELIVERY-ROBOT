@@ -1,0 +1,48 @@
+
+.likeShopContainer{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    margin: 20rpx auto;
+    border-radius: 15rpx;
+    background-color: rgb(245, 239, 239);
+}
+.likeShopTextContainer{
+    display: flex;
+    flex-direction: column;
+}
+.likeShopImg{
+    height: 150rpx;
+    width: 30%;
+    margin: auto 0rpx auto 20rpx;
+}
+.likeShopImg image{
+    width: 100%;
+}
+.likeShopTextContainer{
+    padding: 40rpx;
+    width: 30%;
+    word-break:keep-all;
+    overflow: hidden;
+}
+
+.likeShopName{
+    font-size: 40rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 15rpx auto;
+}
+
+.likeShopId{
+    margin: 15rpx auto;
+    word-break:keep-all;
+    overflow: hidden;
+}
+.cancelSubscribe{
+    margin: auto;
+}
+.cancelButton{
+    font-size: 30rpx;
+    border-radius: 30rpx;
+}
