@@ -1,0 +1,15 @@
+<!-- 机器人启动文件：
+        1.启动底盘
+        2.启动激光雷达
+        3.启动摄像头
+ -->
+ 
+<launch>
+        <node name="runCar00" pkg="test_odom_rap" type="demo01_test.py" output="screen" />
+         <node name="runCar33" pkg="test_odom_rap" type="lcd_show.py" output="screen" />
+         <node name="runCar44" pkg="test_odom_rap" type="interact_with_wechat.py" output="screen" />
+        <node name="runCar22" pkg="test_odom_rap" type="demo01_test_cpp" output="screen" />
+        <node name="runCar55" pkg="test_odom_rap" type="yuyin.py" output="screen" />
+        <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+        <node name="rplidar2base_footprint" pkg="tf2_ros" type="static_transform_publisher" args="0 0 0.1 0 0 0 /base_link /laser"/>
+</launch>

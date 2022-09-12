@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find test_odom_rap)/launch/map_server.launch" />
+    <include file="$(find test_odom_rap)/launch/amcl.launch" />
+    <include file="$(find test_odom_rap)/launch/move_base.launch" />
+</launch>
